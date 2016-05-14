@@ -1,0 +1,72 @@
+ Datentr„ger in Laufwerk C: ist OS
+ Volumeseriennummer: 2ECC-E196
+
+ Verzeichnis von c:\dev\workspace\fishing-lessons-trainer\src\main\webapp\webinterface
+
+25.04.2015  10:58    <DIR>          .
+25.04.2015  10:58    <DIR>          ..
+18.04.2015  08:25           223.799 course_data_formatted.json
+25.04.2015  08:45           236.048 data.js
+17.04.2015  11:15    <DIR>          external
+23.04.2015  21:51    <DIR>          icon
+25.04.2015  10:56             1.207 iconname.png
+17.04.2015  11:15    <DIR>          images
+25.04.2015  10:55            35.010 index.html
+25.04.2015  10:58                 0 index.lst
+17.04.2015  11:15            35.399 jquery-ui.css
+17.04.2015  11:15           470.596 jquery-ui.js
+17.04.2015  11:15            30.215 jquery-ui.min.css
+17.04.2015  11:15           240.427 jquery-ui.min.js
+17.04.2015  11:15            18.016 jquery-ui.structure.css
+17.04.2015  11:15            14.769 jquery-ui.structure.min.css
+17.04.2015  11:15            17.466 jquery-ui.theme.css
+17.04.2015  11:15            13.896 jquery-ui.theme.min.css
+25.04.2015  09:24             9.935 main.js
+17.04.2015  11:35                 0 my.css
+18.04.2015  08:29                25 simple.json
+25.04.2015  10:57                 0 xyz.manifest
+              17 Datei(en),      1.346.808 Bytes
+
+ Verzeichnis von c:\dev\workspace\fishing-lessons-trainer\src\main\webapp\webinterface\external
+
+17.04.2015  11:15    <DIR>          .
+17.04.2015  11:15    <DIR>          ..
+17.04.2015  11:15    <DIR>          jquery
+               0 Datei(en),              0 Bytes
+
+ Verzeichnis von c:\dev\workspace\fishing-lessons-trainer\src\main\webapp\webinterface\external\jquery
+
+17.04.2015  11:15    <DIR>          .
+17.04.2015  11:15    <DIR>          ..
+17.04.2015  11:15           273.199 jquery.js
+               1 Datei(en),        273.199 Bytes
+
+ Verzeichnis von c:\dev\workspace\fishing-lessons-trainer\src\main\webapp\webinterface\icon
+
+23.04.2015  21:51    <DIR>          .
+23.04.2015  21:51    <DIR>          ..
+23.04.2015  21:50             1.150 favicon.ico
+               1 Datei(en),          1.150 Bytes
+
+ Verzeichnis von c:\dev\workspace\fishing-lessons-trainer\src\main\webapp\webinterface\images
+
+17.04.2015  11:15    <DIR>          .
+17.04.2015  11:15    <DIR>          ..
+17.04.2015  11:15               207 ui-bg_diagonals-small_0_aaaaaa_40x40.png
+17.04.2015  11:15               313 ui-bg_diagonals-thick_15_444444_40x40.png
+17.04.2015  11:15               411 ui-bg_diagonals-thick_95_ffdc2e_40x40.png
+17.04.2015  11:15               336 ui-bg_glass_55_fbf5d0_1x400.png
+17.04.2015  11:15               331 ui-bg_highlight-hard_30_285c00_1x100.png
+17.04.2015  11:15               345 ui-bg_highlight-soft_33_3a8104_1x100.png
+17.04.2015  11:15               351 ui-bg_highlight-soft_50_4eb305_1x100.png
+17.04.2015  11:15               364 ui-bg_highlight-soft_60_4ca20b_1x100.png
+17.04.2015  11:15               388 ui-bg_inset-soft_10_285c00_1x100.png
+17.04.2015  11:15             4.549 ui-icons_4eb305_256x240.png
+17.04.2015  11:15             4.549 ui-icons_72b42d_256x240.png
+17.04.2015  11:15             4.549 ui-icons_cd0a0a_256x240.png
+17.04.2015  11:15             6.299 ui-icons_ffffff_256x240.png
+              13 Datei(en),         22.992 Bytes
+
+     Anzahl der angezeigten Dateien:
+              32 Datei(en),      1.644.149 Bytes
+              14 Verzeichnis(se),  9.604.509.696 Bytes frei

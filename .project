@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>sartsi.github.io</name>
+=======
+	<name>webinterface</name>
+>>>>>>> branch 'master' of https://github.com/sartsi/sartsi.github.io.git
 	<comment></comment>
 	<projects>
 	</projects>
