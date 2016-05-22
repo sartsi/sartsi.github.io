@@ -6,12 +6,12 @@ var speziellesLernenSelectedGroup = 0;
 var currentQuestionPositionsName = "currentQuestionPositions";
 var specialLearningGroupsLearnModeName = "storeSpecialLearningGroupsLearnMode";
 
-var examDomains = [ "pruefungssimulation-fragebogen-allgemeine-fischkunde", "pruefungssimulation-fragebogen-spezielle-fischkunde", "pruefungssimulation-fragebogen-gewaesserkunde",
-    "pruefungssimulation-fragebogen-geraetekunde", "pruefungssimulation-fragebogen-gesetzeskunde" ];
+var examDomains = ["pruefungssimulation-fragebogen-allgemeine-fischkunde", "pruefungssimulation-fragebogen-spezielle-fischkunde", "pruefungssimulation-fragebogen-gewaesserkunde",
+    "pruefungssimulation-fragebogen-geraetekunde", "pruefungssimulation-fragebogen-gesetzeskunde"];
 
 function ScoreDataHolder(labelStub, destinationLabelId, localStorageId, hrefBased) {
-  this.hrefBased = hrefBased;
   this.labelStub = labelStub;
+  this.hrefBased = hrefBased;
   this.id = destinationLabelId;
   this.localStorageId = localStorageId;
   this.rightAnswers = 0;
@@ -23,21 +23,17 @@ function ScoreDataHolder(labelStub, destinationLabelId, localStorageId, hrefBase
 var freiesLernenDataHolder = new ScoreDataHolder("Freies Lernen ", "my-tabs-1", localStorageFreeLearningDataHolderName, true);
 
 var specialDataHolder0 = new ScoreDataHolder("Allgemeine Fischkunde ", "spezielles-lernen-radio-label-1", localStorageSpecialDataHoldersNameStub + "1", false);
-var specialDataHolder1 = new ScoreDataHolder("Spezielle Fischkunde ", "spezielles-lernen-radio-label-2", localStorageSpecialDataHoldersNameStub + 2, false);
-var specialDataHolder2 = new ScoreDataHolder("Gewaesserkunde ", "spezielles-lernen-radio-label-3", localStorageSpecialDataHoldersNameStub + "3", false);
-var specialDataHolder3 = new ScoreDataHolder("Geraetekunde ", "spezielles-lernen-radio-label-4", localStorageSpecialDataHoldersNameStub + "4", false);
-var specialDataHolder4 = new ScoreDataHolder("Gesetzeskunde ", "spezielles-lernen-radio-label-5", localStorageSpecialDataHoldersNameStub + "5", false);
-var specialDataHolders = new Array(specialDataHolder0, specialDataHolder1, specialDataHolder2, specialDataHolder3, specialDataHolder4);
+var specialDataHolder3 = new ScoreDataHolder("Geraetekunde ", "spezielles-lernen-radio-label-4", localStorageSpecialDataHoldersNameStub + "2", false);
+var specialDataHolder4 = new ScoreDataHolder("Gesetzeskunde ", "spezielles-lernen-radio-label-5", localStorageSpecialDataHoldersNameStub + "3", false);
+var specialDataHolder2 = new ScoreDataHolder("Gewaesserkunde ", "spezielles-lernen-radio-label-3", localStorageSpecialDataHoldersNameStub + "4", false);
+var specialDataHolder1 = new ScoreDataHolder("Spezielle Fischkunde ", "spezielles-lernen-radio-label-2", localStorageSpecialDataHoldersNameStub + "5", false);
+var specialDataHolders = [specialDataHolder0, specialDataHolder1, specialDataHolder2, specialDataHolder3, specialDataHolder4];
 
 // stores current chronological question positions.
-var currentQuestionPositions = new Array(0, 0, 0, 0, 0);
+var currentQuestionPositions = [0, 0, 0, 0, 0];
 // true means random, false means chronological.
-var speziellesLernenGroupsLearnMode = new Array(true, true, true, true, true);
+var speziellesLernenGroupsLearnMode = [true, true, true, true, true];
 
-/**
- * this variable hold the whole course. XXX right now its coming from data.js
- */
-// var course;
 /**
  * generates random value between 0 and given max argument.
  * 
@@ -55,49 +51,14 @@ $(document).ready(function() {
 
   // init logging
   $.clientSideLogging();
-  // $.getJSON( "course_data_formatted.json", function( data ) {
-  // // set course date fetched.
-  // course = data;
-  // fillNextQuestionForGroup(speziellesLernenSelectedGroup);
-  // fillNextQuestion();
-  // }
-  // );
   $("#my-tabs").tabs();
   $("#freies-lernen-naechste-frage-button").button();
   /**
-   * special leraning
+   * special learning
    */
   $("#spezielles-lernen-radio-set").buttonset();
 
   $("#settings-clear-localstorage").button();
-
-  // $( "#slider" ).slider({
-  // //range: false,
-  // //values: [ 100 ]
-  // min: 1,
-  // max: 100
-  // });
-  // $("#special-learning-question-slider").slider({
-  // start: function( event, ui ) {
-  // console.log(ui);
-  // $(ui.handle).find('.ui-slider-tooltip').show();
-  // },
-  // stop: function( event, ui ) {
-  // $(ui.handle).find('.ui-slider-tooltip').hide();
-  // },
-  // slide: function(event, ui) {
-  // $(ui.handle).find('.ui-slider-tooltip').text(ui.value);
-  // },
-  // create: function( event, ui ) {
-  // var tooltip = $("<div class=\"ui-slider-tooltip\" />").css({
-  // position: 'absolute',
-  // top: -25,
-  // left: -10
-  // });
-  //    
-  // $(event.target).find('.ui-slider-handle').append(tooltip);
-  // }
-  // });
 
   var tooltip = $('<button id="special-learning-question-slider-tooltip" />').css({
     position : 'absolute',
@@ -162,26 +123,15 @@ $(document).ready(function() {
     }
   });
 
-  // $("#special-learning-question-spinner" ).on( "spinchange", function( event,
-  // ui ) { specialLearningSpinnerOnChange(event, ui);} );
-
-  // $( "special-learning-question-spinner" ).on( "spinchange", function( event,
-  // ui ) {
-  // $.error("special-learning-question-slider became value: " + ui.value);
-  // currentQuestionPositions[speziellesLernenSelectedGroup] = ui.value-1;
-  // fillNextQuestionForGroup(speziellesLernenSelectedGroup,speziellesLernenGroupsLearnMode[speziellesLernenSelectedGroup]);
-  // updateSpecialLearningSlider(speziellesLernenSelectedGroup);
-  // } );
-
   $("#settings-clear-localstorage").click(function() {
     localStorage.clear();
   });
   $("#settings-random-chronologic-1").click(function() {
-    speziellesLernenGroupsLearnMode = new Array(true, true, true, true, true);
+    speziellesLernenGroupsLearnMode = [true,true, true, true, true];
     storeSpecialLearningGroupsLearnMode();
   });
   $("#settings-random-chronologic-2").click(function() {
-    speziellesLernenGroupsLearnMode = new Array(false, false, false, false, false);
+    speziellesLernenGroupsLearnMode = [false, false, false, false, false];
     storeSpecialLearningGroupsLearnMode();
   });
 
@@ -265,12 +215,12 @@ $(document).ready(function() {
    * the same with specialDataHolders
    */
 
-  for (var i = 1; i <= 5; i++) {
-    var tempSpecialDataHolder = localStorage.getItem(localStorageSpecialDataHoldersNameStub + i);
+  for (var courseLoop = 1; courseLoop <= 5; courseLoop++) {
+    var tempSpecialDataHolder = localStorage.getItem(localStorageSpecialDataHoldersNameStub + courseLoop.toString());
     if (tempSpecialDataHolder !== 'undefined' && tempSpecialDataHolder !== null) {
       var parsedSpecialDataHolder = JSON.parse(tempSpecialDataHolder);
-      specialDataHolders[i].rightAnswers = parsedSpecialDataHolder.rightAnswers;
-      specialDataHolders[i].totalAnswers = parsedSpecialDataHolder.totalAnswers;
+      specialDataHolders[courseLoop].rightAnswers = parsedSpecialDataHolder.rightAnswers;
+      specialDataHolders[courseLoop].totalAnswers = parsedSpecialDataHolder.totalAnswers;
     }
   }
   // restore current question positions.
@@ -287,25 +237,9 @@ $(document).ready(function() {
   } else {
     $("#settings-random-chronologic-2").click();
   }
-
-  // alert("course :" + course_from_storage);
-  // localStorage.clear();
-  // } else {
-  // localStorage.setItem("course", JSON.stringify(course));
-  // }
-
-  // web storage related stuff
-  // var course_from_storage = localStorage.getItem("course");
-  // if(course_from_storage !== 'undefined' && course_from_storage !== null) {
-  // alert("course :" + course_from_storage);
-  // localStorage.clear();
-  // } else {
-  // localStorage.setItem("course", JSON.stringify(course));
-  // }
 });
 
 function updateSpecialLearningSlider(questionGroupNumber) {
-  // $("#special-learning-question-slider").slider();
   $("#special-learning-question-slider").slider("option", "min", 1);
   var questionGroup = course.questionGroup[questionGroupNumber];
   var questionGroupLength = questionGroup.question.length;
@@ -330,9 +264,6 @@ function specialLearningSpinnerUpdate(value) {
 }
 
 function updateSpecialLearningSpinner(questionGroupNumber) {
-  // disable spinners change function.
-  // $("special-learning-question-spinner").on( "spinchange", function(event,
-  // ui) {});
   $("special-learning-question-spinner").off();
   $("#special-learning-question-spinner").spinner("option", "min", 1);
   var questionGroup = course.questionGroup[questionGroupNumber];
@@ -347,9 +278,6 @@ function updateSpecialLearningSpinner(questionGroupNumber) {
   $("special-learning-question-spinner").on("spin", function(event, ui) {
     specialLearningSpinnerOnChange(event, ui);
   });
-  // $("#special-learning-question-spinner").on( "spinchange", function( event,
-  // ui ) { specialLearningSpinnerOnChange(event, ui);} );
-
 }
 
 /**
@@ -389,8 +317,6 @@ function getGroup(currentCourse, n) {
   if (n >= 0 && n < groupLength) {
     position = n;
   }
-  // var randomGroupNumber = randomValueFromZeroToMax(position);
-  // return currentCourse.questionGroup[randomGroupNumber];
   return currentCourse.questionGroup[position];
 }
 /**
@@ -404,7 +330,7 @@ function getRandomQuestionFromGroup(currentGroup) {
 function getNextQuestionFromGroup(currentGroup, n) {
   var questionLength = currentGroup.question.length;
   var currentQuestionNumber = currentQuestionPositions[n];
-  var question = null;
+  var question;
   if (currentQuestionNumber < questionLength) {
     question = currentGroup.question[currentQuestionNumber];
     currentQuestionPositions[n] = currentQuestionPositions[n] + 1;
@@ -440,26 +366,10 @@ function restoreSpecialLearningGroupsLearnMode() {
 }
 
 /**
- * just a backup function, which holds some knowledge for now.
- */
-function backupFunction() {
-  var groupLength = course.questionGroup.length;
-  for (var i = 0; i < groupLength; i++) {
-    var group = course.questionGroup[i];
-    var questionLength = group.question.length;
-    for (var j = 0; j < questionLength; j++) {
-      var question = group.question[j];
-    }
-  }
-}
-
-/**
  * generates new random question and fills it to certain area with certain id.
  */
 function fillNextQuestion() {
   var question = getRandomQuestionFromCourse(course);
-  var rightAnswersCounter = 0;
-  var totalAnswersCounter = 0;
   insertSingleQuestion("freies-lernen-frage-bereich", "nextQuestion", question, freiesLernenDataHolder, -1);
 }
 
@@ -471,9 +381,9 @@ function fillNextQuestionForGroup(n, showRandomQuestion) {
     var question = getRandomQuestionFromCourseForGroup(course, n);
     insertSingleQuestion("spezielles-lernen-frage-bereich", "nextSpecialQuestion", question, specialDataHolders[n], -1);
   } else {
-    var question = getNextQuestionFromCourseForGroup(course, n);
+    var aQuestion = getNextQuestionFromCourseForGroup(course, n);
     var questionNumber = currentQuestionPositions[n];
-    insertSingleQuestion("spezielles-lernen-frage-bereich", "nextSpecialQuestion", question, specialDataHolders[n], questionNumber);
+    insertSingleQuestion("spezielles-lernen-frage-bereich", "nextSpecialQuestion", aQuestion, specialDataHolders[n], questionNumber);
   }
 }
 
@@ -499,7 +409,7 @@ function insertExamQuestion(destionationContainerId, containerId, question, ques
       + '<input type="radio" id="' + containerId + '-1" name="radio"><label id="' + containerId + '-1-Label-1" for="' + containerId + '-1">' + question.answer[0] + '</label><br/>'
       + '<input type="radio" id="' + containerId + '-2" name="radio"><label id="' + containerId + '-2-Label-2" for="' + containerId + '-2">' + question.answer[1] + '</label><br/>'// 
       + '<input type="radio" id="' + containerId + '-3" name="radio"><label id="' + containerId + '-3-Label-3" for="' + containerId + '-3">' + question.answer[2] + '</label>' + '</div>';
-  var object = $("#" + destionationContainerId);
+
   $("#" + destionationContainerId).append(questionHtmlData);
   var rightAnswer = question.rightanswer;
 
@@ -548,10 +458,10 @@ function insertSingleQuestion(destionationContainerId, containerId, question, da
   }
 
   var questionHtmlData = '<div id="' + containerId + '" style="font-size:16px;">' + '<p id="' + containerId + 'Name">' + questionPrefix + question.name + '</p>' + '<input type="radio" id="'
-      + containerId + '1" name="radio"><label id="' + containerId + 'Label1" for="' + containerId + '1">' + question.answer[0] + '</label><br/>' + '<input type="radio" id="' + containerId
-      + '2" name="radio"><label id="' + containerId + 'Label2" for="' + containerId + '2">' + question.answer[1] + '</label><br/>' + '<input type="radio" id="' + containerId
-      + '3" name="radio"><label id="' + containerId + 'Label3" for="' + containerId + '3">' + question.answer[2] + '</label>' + '</div>';
-  var object = $("#" + destionationContainerId);
+      + containerId + '1" name="radio"><label id="' + containerId + 'Label1" for="' + containerId + '1">' + question.answer[0] + '</label><br/><br/>' + '<input type="radio" id="' + containerId
+      + '2" name="radio"><label id="' + containerId + 'Label2" for="' + containerId + '2">' + question.answer[1] + '</label><br/><br/>' + '<input type="radio" id="' + containerId
+      + '3" name="radio"><label id="' + containerId + 'Label3" for="' + containerId + '3">' + question.answer[2] + '</label><br/><br/>' + '</div>';
+
   $("#" + destionationContainerId).append(questionHtmlData);
   var rightAnswer = question.rightanswer;
 
@@ -567,7 +477,7 @@ function insertSingleQuestion(destionationContainerId, containerId, question, da
 }
 
 function solveCurrentAnswer(containerId, currentAnswer, rightAnswer, dataHolder) {
-  if (currentAnswer == rightAnswer) {
+  if (currentAnswer === rightAnswer) {
     dataHolder.rightAnswers++;
     $("#" + containerId + "Label" + (currentAnswer)).css("color", "lightgreen");
   } else {
@@ -584,7 +494,7 @@ function solveCurrentAnswer(containerId, currentAnswer, rightAnswer, dataHolder)
 // XXX do it better, unifiy with function solveCurrentAnswer(containerId,
 // currentAnswer, rightAnswer, dataHolder)
 function solveCurrentExamAnswer(containerId, currentAnswer, rightAnswer) {
-  if (currentAnswer == rightAnswer) {
+  if (currentAnswer === rightAnswer) {
     $("#" + containerId + "Label" + (currentAnswer)).css("color", "lightgreen");
   } else {
     $("#" + containerId + "Label" + (currentAnswer)).css("color", "red");
@@ -596,7 +506,7 @@ function solveCurrentExamAnswer(containerId, currentAnswer, rightAnswer) {
 }
 
 function solveCurrentExamAnswerNew(containerId, currentAnswer, rightAnswer) {
-  if (currentAnswer == rightAnswer) {
+  if (currentAnswer === rightAnswer) {
     $("#" + containerId + "-" + currentAnswer + "-Label-" + (currentAnswer)).css("color", "lightgreen");
   } else {
     $("#" + containerId + "-" + currentAnswer + "-Label-" + (currentAnswer)).css("color", "red");
@@ -608,8 +518,12 @@ function solveCurrentExamAnswerNew(containerId, currentAnswer, rightAnswer) {
 }
 
 function updateLabelScore(dataHolder) {
-  if (dataHolder.hrefBased == true) {
-    $("a[href='#my-tabs-1']").text(dataHolder.labelStub + dataHolder.rightAnswers + " / " + dataHolder.totalAnswers);
+  if (dataHolder.hrefBased) {
+    var percents = 0;
+    if(dataHolder.totalAnswers !== 0) {
+      percents = dataHolder.rightAnswers * 100 / dataHolder.totalAnswers; 
+    }
+    $("a[href='#my-tabs-1']").text(dataHolder.labelStub + dataHolder.rightAnswers + " / " + dataHolder.totalAnswers + " ("+ percents + "%)");
   } else {
     // what the fuck @ jquery UI...
     $("#" + dataHolder.id + " .ui-button-text").text(dataHolder.labelStub + dataHolder.rightAnswers + " / " + dataHolder.totalAnswers);
@@ -617,19 +531,4 @@ function updateLabelScore(dataHolder) {
 }
 function writeLabelScoreToLocalStorage(dataHolder) {
   localStorage.setItem(dataHolder.localStorageId, JSON.stringify(dataHolder));
-  // does nothing right now.
-  // alert("course :" + course_from_storage);
-  // localStorage.clear();
-  // } else {
-  // localStorage.setItem("course", JSON.stringify(course));
-  // }
-
-  // web storage related stuff
-  // var course_from_storage = localStorage.getItem("course");
-  // if(course_from_storage !== 'undefined' && course_from_storage !== null) {
-  // alert("course :" + course_from_storage);
-  // localStorage.clear();
-  // } else {
-  // localStorage.setItem("course", JSON.stringify(course));
-  // }
 }
