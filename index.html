@@ -1,21 +1,18 @@
 <!doctype html>
 <!-- <html lang="us" style="height:100%;width:100%"> -->
-<html lang="us" manifest="fishing.appcache" style="height:100%;width:100%">
+<html lang="us" manifest="fishing.appcache" style="height: 100%; width: 100%">
 <head>
-<title>Fischereischein Vorbereitung V 0.0.3 </title>
+<title>Fischereischein Vorbereitung V 0.0.4</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="viewport"
-  content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"
-  user-scalable=0">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" user-scalable=0">
 <meta charset="utf-8">
 
 <link rel="apple-touch-icon" href="iconname.png">
 <link rel="apple-touch-startup-image" href="startupimagename.png">
 <link rel="apple-touch-icon-precomposed" href="iconname.png">
-<link rel="icon" type="image/vnd.microsoft.icon"
-  href="./icon/favicon.ico">
+<link rel="icon" type="image/vnd.microsoft.icon" href="./icon/favicon.ico">
 <link href="./jquery-ui.css" rel="stylesheet">
 <link href="./my.css" rel="stylesheet">
 
@@ -25,80 +22,85 @@
 <script src="./data.js"></script>
 <script src="./main.js"></script>
 </head>
-<body style="height:100%; width:100%;">
+<body style="height: 100%; width: 100%;">
 
   <!-- My tab -->
-  <h2 class="demoHeaders">Lernsystem für die Fisereischeinprüfung
-    in Freistaat Sachsen.</h2>
+  <h2 class="demoHeaders">Lernsystem für die Fisereischeinprüfung in Freistaat Sachsen.</h2>
   <div id="my-tabs" style="height: 93%;">
     <ul>
-      <li><a href="#my-tabs-1">Freies Lernen</a></li>
-      <li><a href="#my-tabs-2">Spezielles Lernen</a></li>
-      <li><a href="#my-tabs-3">Prüfungssimulation</a></li>
-      <li><a href="#my-tabs-4">Einstellungen</a></li>
+      <li>
+        <a href="#my-tabs-1">Freies Lernen</a>
+      </li>
+      <li>
+        <a href="#my-tabs-2">Spezielles Lernen</a>
+      </li>
+      <li>
+        <a href="#my-tabs-3">Prüfungssimulation</a>
+      </li>
+      <li>
+        <a href="#my-tabs-4">Einstellungen</a>
+      </li>
     </ul>
     <div id="my-tabs-1">
-      Hier können sie alle Themengebiete auf ein Mal üben. Die Fragen
-      werden zufälig aus einem der fünf Gebiete ausgewählt. nach dem
-      Beantworten der Frage wird die Antwort sofort ausgewertet. <br />
+      Hier können sie alle Themengebiete auf ein Mal üben. Die Fragen werden zufälig aus einem der fünf Gebiete
+      ausgewählt. nach dem Beantworten der Frage wird die Antwort sofort ausgewertet.
+      <br />
       <!-- <button id="freies-lernen-starten-button" style="visibility:hidden;">Freies Lernen starten</button> -->
       <!-- <br/> -->
       <div id="freies-lernen-frage-bereich"></div>
       <!-- <div id="freies-lernen-frage-bereich" style="visibility:hidden;"></div> -->
       <br />
       <!-- 		<button id="freies-lernen-naechste-frage-button" style="visibility:hidden;">Nächste Frage</button> -->
-      <button id="freies-lernen-naechste-frage-button">Nächste
-        Frage</button>
-      <button id="freies-lernen-beenden-button"
-        style="visibility: hidden;">Freies Lernen Beenden</button>
+      <button id="freies-lernen-naechste-frage-button">Nächste Frage</button>
     </div>
     <div id="my-tabs-2">
-      Hier können Sie zwischen den vorhandenen Prüfungsgebieten wechseln
-      und die zugehörigen Fragen gezielt üben. <br /> <br />
+      Hier können Sie zwischen den vorhandenen Prüfungsgebieten wechseln und die zugehörigen Fragen gezielt üben.
+      <br />
+      <br />
       <form>
         <div id="spezielles-lernen-radio-set">
-          <input type="radio" id="spezielles-lernen-radio-1"
-            name="radio" checked="checked"><label
-            id="spezielles-lernen-radio-label-1"
-            for="spezielles-lernen-radio-1">Allgemeine Fischkunde</label> <input type="radio"
-            id="spezielles-lernen-radio-2" name="radio"><label
-            id="spezielles-lernen-radio-label-2"
-            for="spezielles-lernen-radio-2">Geraetekunde</label>
-          <input type="radio" id="spezielles-lernen-radio-3"
-            name="radio"><label id="spezielles-lernen-radio-label-3"
-            for="spezielles-lernen-radio-3">Gesetzeskunde</label> <input
-            type="radio" id="spezielles-lernen-radio-4" name="radio"><label
-            id="spezielles-lernen-radio-label-4"
-            for="spezielles-lernen-radio-4">Gewaesserkunde</label> <input
-            type="radio" id="spezielles-lernen-radio-5" name="radio"><label
-            id="spezielles-lernen-radio-label-5"
-            for="spezielles-lernen-radio-5">Spezielle Fischkunde</label>
+          <input type="radio" id="spezielles-lernen-radio-1" name="radio" checked="checked">
+          <label id="spezielles-lernen-radio-label-1" for="spezielles-lernen-radio-1">Allgemeine Fischkunde</label>
+          <input type="radio" id="spezielles-lernen-radio-2" name="radio">
+          <label id="spezielles-lernen-radio-label-2" for="spezielles-lernen-radio-2">Geraetekunde</label>
+          <input type="radio" id="spezielles-lernen-radio-3" name="radio">
+          <label id="spezielles-lernen-radio-label-3" for="spezielles-lernen-radio-3">Gesetzeskunde</label>
+          <input type="radio" id="spezielles-lernen-radio-4" name="radio">
+          <label id="spezielles-lernen-radio-label-4" for="spezielles-lernen-radio-4">Gewaesserkunde</label>
+          <input type="radio" id="spezielles-lernen-radio-5" name="radio">
+          <label id="spezielles-lernen-radio-label-5" for="spezielles-lernen-radio-5">Spezielle Fischkunde</label>
         </div>
       </form>
-      <br /> Ziehen Sie den Gleiter, um die gewünschte Frage auszuwählen. <br /> <br />
-      
+      <br />
+      Ziehen Sie den Gleiter, um die gewünschte Frage auszuwählen.
+      <br />
+      <br />
+
       <table>
-      <tbody>
-      <tr>
-      <td style="width: 20%;"> <input id="special-learning-question-spinner" /></td>
-      <td style="width: 80%;"> <div id="special-learning-question-slider"></div></td>
-      </tr>
-      </tbody>
+        <tbody>
+          <tr>
+            <td style="width: 20%;">
+              <input id="special-learning-question-spinner" />
+            </td>
+            <td style="width: 80%;">
+              <div id="special-learning-question-slider"></div>
+            </td>
+          </tr>
+        </tbody>
       </table>
-      
+
 
       <br />
       <div id="spezielles-lernen-frage-bereich"></div>
       <br />
-      <button id="spezielles-lernen-naechste-frage-button">Nächste
-        Frage</button>
+      <button id="spezielles-lernen-naechste-frage-button">Nächste Frage</button>
     </div>
     <div id="my-tabs-3">
       Hier können Sie die Prüfungssimulation starten.
       <div id="pruefungssimulation-fragebogen">
         <h3>Allgemeine Fischkunde</h3>
-        <div id="pruefungssimulation-fragebogen-allgemeine-fischkunde">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet. Lorem ipsum dolor sit amet.</div>
+        <div id="pruefungssimulation-fragebogen-allgemeine-fischkunde">Lorem ipsum dolor sit amet. Lorem ipsum
+          dolor sit amet. Lorem ipsum dolor sit amet.</div>
         <h3>Spezielle Fischkunde</h3>
         <div id="pruefungssimulation-fragebogen-spezielle-fischkunde">Phasellus mattis tincidunt nibh.</div>
         <h3>Gewaesserkunde</h3>
@@ -113,18 +115,14 @@
       Hier können Sie die Einstellungen vornehmen.
       <form>
         <div id="settings-random-chronologic-set">
-          <input type="radio" id="settings-random-chronologic-1"
-            name="radio" checked="checked"><label
-            id="settings-random-chronologic-label-1"
-            for="settings-random-chronologic-1">Zufällig</label> <input
-            type="radio" id="settings-random-chronologic-2" name="radio"><label
-            id="settings-random-chronologic-label-2"
-            for="settings-random-chronologic-2">Geordnet</label>
+          <input type="radio" id="settings-random-chronologic-1" name="radio" checked="checked">
+          <label id="settings-random-chronologic-label-1" for="settings-random-chronologic-1">Zufällig</label>
+          <input type="radio" id="settings-random-chronologic-2" name="radio">
+          <label id="settings-random-chronologic-label-2" for="settings-random-chronologic-2">Geordnet</label>
         </div>
       </form>
       <br />
-      <button id="settings-clear-localstorage">Lokalen Speicher
-        löschen</button>
+      <button id="settings-clear-localstorage">Lokalen Speicher löschen</button>
     </div>
   </div>
 </body>

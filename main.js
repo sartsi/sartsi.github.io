@@ -23,10 +23,10 @@ function ScoreDataHolder(labelStub, destinationLabelId, localStorageId, hrefBase
 var freiesLernenDataHolder = new ScoreDataHolder("Freies Lernen ", "my-tabs-1", localStorageFreeLearningDataHolderName, true);
 
 var specialDataHolder0 = new ScoreDataHolder("Allgemeine Fischkunde ", "spezielles-lernen-radio-label-1", localStorageSpecialDataHoldersNameStub + "1", false);
-var specialDataHolder3 = new ScoreDataHolder("Geraetekunde ", "spezielles-lernen-radio-label-4", localStorageSpecialDataHoldersNameStub + "2", false);
-var specialDataHolder4 = new ScoreDataHolder("Gesetzeskunde ", "spezielles-lernen-radio-label-5", localStorageSpecialDataHoldersNameStub + "3", false);
-var specialDataHolder2 = new ScoreDataHolder("Gewaesserkunde ", "spezielles-lernen-radio-label-3", localStorageSpecialDataHoldersNameStub + "4", false);
-var specialDataHolder1 = new ScoreDataHolder("Spezielle Fischkunde ", "spezielles-lernen-radio-label-2", localStorageSpecialDataHoldersNameStub + "5", false);
+var specialDataHolder3 = new ScoreDataHolder("Geraetekunde ", "spezielles-lernen-radio-label-2", localStorageSpecialDataHoldersNameStub + "2", false);
+var specialDataHolder4 = new ScoreDataHolder("Gesetzeskunde ", "spezielles-lernen-radio-label-3", localStorageSpecialDataHoldersNameStub + "3", false);
+var specialDataHolder2 = new ScoreDataHolder("Gewaesserkunde ", "spezielles-lernen-radio-label-4", localStorageSpecialDataHoldersNameStub + "4", false);
+var specialDataHolder1 = new ScoreDataHolder("Spezielle Fischkunde ", "spezielles-lernen-radio-label-5", localStorageSpecialDataHoldersNameStub + "5", false);
 var specialDataHolders = [specialDataHolder0, specialDataHolder1, specialDataHolder2, specialDataHolder3, specialDataHolder4];
 
 // stores current chronological question positions.
@@ -491,7 +491,7 @@ function solveCurrentAnswer(containerId, currentAnswer, rightAnswer, dataHolder)
   updateLabelScore(dataHolder);
   writeLabelScoreToLocalStorage(dataHolder);
 }
-// XXX do it better, unifiy with function solveCurrentAnswer(containerId,
+// XXX do it better, unify with function solveCurrentAnswer(containerId,
 // currentAnswer, rightAnswer, dataHolder)
 function solveCurrentExamAnswer(containerId, currentAnswer, rightAnswer) {
   if (currentAnswer === rightAnswer) {
