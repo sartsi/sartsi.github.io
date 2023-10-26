@@ -18,11 +18,5 @@ jobs:
     - name: Build the Docker image
       run: |
         export;
-        echo $DOCKER_TOKEN;
-        echo "env.DOCKER_ACCESS_TOKEN: " ${{ env.DOCKER_ACCESS_TOKEN }};
-        echo "testvariable: " ${{ TEST_VARIABLE }};
-        echo "env.testvariable: " ${{ env.TEST_VARIABLE }};
-        echo "DOCKER_TOKEN_TWO: " $DOCKER_TOKEN_TWO";
-        
         export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{ env.DOCKER_ACCESS_TOKEN }}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
         
