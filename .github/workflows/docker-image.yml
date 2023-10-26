@@ -11,18 +11,12 @@ jobs:
     
     runs-on: ubuntu-latest
     environment: docker
-#    env:
-#      DOCKER_TOKEN_TWO: ${{ DOCKER_ACCESS_TOKEN }}
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        echo "1" ${{ env.TEST_SECRET }};
-        echo "2" ${{ secrets.TEST_SECRET }};
-        echo "3" ${{ vars.TEST_SECRET }};
-        echo "4" ${{ docker.TEST_SECRET }};
-        echo "5 $DOCKER_TOKEN";
-        echo "6 $DOCKER_TOKEN_TWO";
+        echo "$TEST_SECRET";
+        echo "6 $TEST_VARIABLE";
         
         export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{ env.DOCKER_ACCESS_TOKEN }}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
         
