@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sartsigithubio
-        image: sartsi/sartsigithubio-arm64:1.0.2
+        image: sartsi/sartsigithubio:1698317197
         ports:
         - containerPort: 80
 
