@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: docker
     env:
-      DOCKER_TOKEN: ${{ docker.DOCKER_ACCESS_TOKEN }}
       DOCKER_TOKEN_TWO: ${{ DOCKER_ACCESS_TOKEN }}
     steps:
     - uses: actions/checkout@v3
