@@ -11,12 +11,13 @@ jobs:
     
     runs-on: ubuntu-latest
     #environment: docker
-    env:
-      DOCKER_TOKEN: ${{ env.DOCKER_ACCESS_TOKEN }}
     steps:
+    - with:
+        DOCKER_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
         export;
-        export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{ env.DOCKER_ACCESS_TOKEN }}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
+        echo $DOCKER_TOKEN;
+        export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{ secrets.DOCKER_ACCESS_TOKEN }}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
         
