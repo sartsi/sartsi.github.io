@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sartsigithubioi
+  labels:
+    app: sartsigithubio
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: sartsigithubio
+  type: NodePort
