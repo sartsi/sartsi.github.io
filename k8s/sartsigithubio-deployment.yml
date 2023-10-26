@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mymusicstats-deployment
+  name: sartsigithubio-deployment
   labels:
-    app: mymusicstats
+    app: sartsigithubio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mymusicstats
+      app: sartsigithubio
   template:
     metadata:
       labels:
-        app: mymusicstats
+        app: sartsigithubio
     spec:
       containers:
-      - name: mymusicstats
+      - name: sartsigithubio
         image: sartsi/sartsigithubio-arm64:1.0.2
         ports:
         - containerPort: 80
