@@ -10,7 +10,7 @@ jobs:
   build:
     
     runs-on: ubuntu-latest
-    environment: docker
+    #environment: docker
     env:
       DOCKER_TOKEN: ${{ DOCKER_ACCESS_TOKEN }}
     steps:
