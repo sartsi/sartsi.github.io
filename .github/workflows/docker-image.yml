@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; echo $DOCKER_ACCESS_TOKEN | docker login -u sartsi --password-stdin; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
+        export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; echo ${{ env.DOCKER_ACCESS_TOKEN}} | docker login -u sartsi --password-stdin; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
         
