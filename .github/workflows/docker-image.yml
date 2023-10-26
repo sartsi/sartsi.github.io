@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{env.DOCKER_ACCESS_TOKEN}}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
+        echo "1 $TEST_SECRET"; echo "2"${{env.TEST_SECRET}}; export CURRENT_TAG_NAME=$(date +%s); docker build . --file Dockerfile --tag sartsi/sartsigithubio:$CURRENT_TAG_NAME; docker login -u sartsi -p ${{env.DOCKER_ACCESS_TOKEN}}; docker push sartsi/sartsigithubio:$CURRENT_TAG_NAME
         
